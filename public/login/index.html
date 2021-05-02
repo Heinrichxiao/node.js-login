@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let user;
+        let pass;
+        function login() {
+            user = document.getElementById("user").value;
+            pass = document.getElementById("pass").value;
+            if ((user == "") || (pass == "")) {
+
+            } else {
+                const data = {
+                    user: user,
+                    pass: pass
+                };
+                const options = {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                };
+                fetch('/api/login', options)
+                console.log("logging in")
+            }
+        }
+    </script>
+</head>
+<body>
+    <span>Username: </span>
+    <input type="text" id="user"/>
+    <br/>
+    <!-- <br/> -->
+    <span>Password: </span>
+    <input type="text" id="pass"/>
+    <br/>
+    <br/>
+    <button id="login" onclick="login()">Login</button>
+    <!-- <button id="signup">Signup</button> -->
+    <script>
+    </script>
+</body>
+</html>
